@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function CardDetail({
   poster,
   title,
@@ -21,20 +19,17 @@ export default function CardDetail({
           className="h-max-[50%] rounded-lg border-2"
         />
       </div>
-      <p className="">
-        {title}, {runtime}
-      </p>
-      <p className="">{writer}</p>
-      <p className="">
-        {country}, {year}
-      </p>
-      <p className="">{genre}</p>
-      <p className="">{plot}</p>
-      <p className="">imdb Rating : {rating}</p>
-      <div className="flex w-full items-center justify-center">
-        <button className="w-1/2 rounded-lg bg-purple-600 py-2 font-sans font-semibold text-white hover:opacity-90">
-          <Link to={"/select-seat"}>Book</Link>
-        </button>
+      <div className="w-full lg:w-1/2">
+        <p className="">
+          {title}, {runtime}
+        </p>
+        <p className="">Writer : {writer}</p>
+        <p className="">
+          Release : {country}, {year}
+        </p>
+        <p className="">Genre : {genre}</p>
+        <p className="">Plot : {plot}</p>
+        <p className="">imdb Rating : {rating}</p>
       </div>
     </div>
   );
