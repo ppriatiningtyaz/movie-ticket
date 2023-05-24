@@ -30,6 +30,8 @@ function App() {
       console.log(error);
     }
   };
+  
+//   tambah comment
 
   useEffect(() => {
     getData();
