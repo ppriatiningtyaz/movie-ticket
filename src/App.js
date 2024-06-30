@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 import Movie from "./pages/movie";
 import MovieDetail from "./pages/movie-detail";
 import SelectSeat from "./pages/select-seat";
@@ -16,22 +15,20 @@ function App() {
   const [tempData, setTempData] = useState();
   const [data, setData] = useState();
   const [dataStore, setDataStore] = useState([historyData]);
+
   const getData = async () => {
     try {
       const arr = [];
-      const res = await axios.get(
-        "http://www.omdbapi.com/?i=tt3896198&apikey=a43912af"
-      );
+      const req = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=a43912af");
+      const res = await req.json();
       for (let i = 0; i < 10; i++) {
-        arr.push(res.data);
+        arr.push(res);
       }
       setTempData(arr);
     } catch (error) {
       console.log(error);
     }
   };
-  
-//   tambah comment
 
   useEffect(() => {
     getData();
@@ -44,15 +41,15 @@ function App() {
       tempData?.map((item, i) => {
         let a = {
           id: i,
-          poster: item.Poster,
-          title: item.Title,
-          runtime: item.Runtime,
-          writer: item.Writer,
-          country: item.Country,
-          year: item.Year,
-          genre: item.Genre,
-          plot: item.Plot,
-          rating: item.imdbRating,
+          poster: item?.Poster,
+          title: item?.Title,
+          runtime: item?.Runtime,
+          writer: item?.Writer,
+          country: item?.Country,
+          year: item?.Year,
+          genre: item?.Genre,
+          plot: item?.Plot,
+          rating: item?.imdbRating,
         };
         datas.push(a);
       });

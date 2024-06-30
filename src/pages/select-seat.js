@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const seatingChart = [
   ["A1", "A2", "A3", "A4", "A5"],
@@ -35,7 +36,10 @@ export default function SelectSeat({ dataStore, setDataStore }) {
   };
 
   return (
-    <div className="flex w-full justify-center">
+    <div className="relative flex w-full justify-center">
+      <div className="absolute top-4 left-4">
+        <Link to={"/"}>Kembali</Link>
+      </div>
       <div className="mx-auto mt-8 max-w-[1280px]">
         <h1 className="py-5 text-2xl font-bold">Select your seats</h1>
         <div className="flex h-[5rem] w-full items-center justify-center border-2">
