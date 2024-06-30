@@ -38,7 +38,7 @@ function App() {
     if (tempData?.length) {
       let datas = [];
 
-      tempData?.map((item, i) => {
+      tempData?.forEach((item, i) => {
         let a = {
           id: i,
           poster: item?.Poster,
@@ -53,6 +53,7 @@ function App() {
         };
         datas.push(a);
       });
+
       setData(datas);
     }
   }, [tempData]);
